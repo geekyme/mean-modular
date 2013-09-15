@@ -1,0 +1,26 @@
+.navbar.navbar-default(role="navigation")
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-head-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='#!/') Brand
+
+    .collapse.navbar-collapse.navbar-head-collapse(ng-controller="NavbarCtrl")
+      ul.nav.navbar-nav.navbar-left
+        li(ng-show="auth.authenticated", ng-repeat="entry in navbarEntries")
+          a(ng-href="#!/{{entry.link}}") {{entry.title}}
+      ul.nav.navbar-nav.navbar-right(ng-hide="auth.authenticated")
+        li: a(href="/signup", target="_self") Signup
+        li(class="divider-vertical")
+        li: a(href="/signin", target="_self") Signin
+      ul.nav.navbar-nav.navbar-right(ng-show="auth.authenticated")
+        li.dropdown
+          a.dropdown-toggle(href="#", data-toggle="dropdown")
+            {{auth.user.name}} 
+            b.caret
+          ul.dropdown-menu
+            li: a(href="/signout", target="_self") Signout  
+

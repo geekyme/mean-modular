@@ -1,0 +1,6 @@
+extends layouts/default
+
+block content
+	section.body-content(ui-view="body")
+	script(type="text/javascript").
+		window.user = !{user};

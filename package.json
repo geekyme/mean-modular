@@ -31,6 +31,7 @@
         "mean-logger": "latest",
         "bower": "latest",
         "forever": "latest",
+        "stylus": "latest",
         "foreman": "0.0.25"
     },
     "devDependencies": {
